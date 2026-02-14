@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Donate to the Stacey Monts Foundation - Help us break the cycle of poverty and empower youth in Atlanta's Westside community.">
+    <title>Donate | Stacey Monts Foundation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2D5A4A;
+            --primary-light: #3D7A64;
+            --primary-dark: #1D3A32;
+            --accent: #C9A962;
+            --accent-light: #E5D4A1;
+            --dark: #1A1A1A;
+            --light: #F8F6F3;
+            --gray: #6B6B6B;
+            --gray-light: #E8E6E3;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+            background: var(--light);
+        }
+        
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-light);
+            min-height: 90px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        
+        .logo span { color: var(--accent); }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-main { font-size: 24px; }
+        .logo-sub { font-size: 13px; font-weight: 500; color: var(--gray); letter-spacing: 1px; }
+        
+        .nav-links { display: flex; gap: 35px; list-style: none; }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a.active { color: var(--primary); }
+        .nav-donate { background: var(--primary); color: white !important; padding: 12px 28px; border-radius: 30px; }
+        .nav-donate:hover { background: var(--primary-dark); }
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
+        
+        /* Page Header */
+        .page-header {
+            padding: 160px 5% 80px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            text-align: center;
+        }
+        
+        .page-header h1 { font-size: clamp(36px, 5vw, 56px); color: white; margin-bottom: 15px; }
+        .page-header h1 span { color: var(--accent); }
+        .page-header p { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; }
+        
+        /* Donation Section */
+        .donation-section {
+            padding: 80px 5%;
+            background: white;
+        }
+        
+        .donation-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .donation-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .donation-intro h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .donation-intro p {
+            color: var(--gray);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Donation Form */
+        .donation-form {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 50px;
+            border: 1px solid var(--gray-light);
+        }
+        
+        .form-section {
+            margin-bottom: 35px;
+        }
+        
+        .form-section-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        /* Frequency Options */
+        .frequency-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .frequency-option {
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .frequency-option input {
+            display: none;
+        }
+        
+        .frequency-option label {
+            display: block;
+            padding: 18px 25px;
+            background: white;
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .frequency-option input:checked + label {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+        
+        .frequency-option label:hover {
+            border-color: var(--primary);
+        }
+        
+        /* Amount Options */
+        .amount-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .amount-option {
+            position: relative;
+        }
+        
+        .amount-option input {
+            display: none;
+        }
+        
+        .amount-option label {
+            display: block;
+            padding: 20px;
+            background: white;
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+        
+        .amount-option input:checked + label {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .amount-option label:hover {
+            border-color: var(--primary);
+        }
+        
+        /* Custom Amount */
+        .custom-amount {
+            margin-top: 20px;
+        }
+        
+        .custom-amount label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .custom-amount-input {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        
+        .custom-amount-input:focus-within {
+            border-color: var(--primary);
+        }
+        
+        .custom-amount-input span {
+            padding: 18px 20px;
+            background: var(--gray-light);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--gray);
+        }
+        
+        .custom-amount-input input {
+            flex: 1;
+            padding: 18px 20px;
+            border: none;
+            font-size: 20px;
+            font-family: inherit;
+            outline: none;
+        }
+        
+        /* Personal Info */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 15px;
+            transition: border-color 0.3s;
+            background: white;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        /* Submit Button */
+        .donate-btn {
+            display: block;
+            width: 100%;
+            padding: 20px 40px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        
+        .donate-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 90, 74, 0.3);
+        }
+        
+        .donate-btn i {
+            margin-right: 10px;
+        }
+        
+        /* Security Note */
+        .security-note {
+            text-align: center;
+            margin-top: 25px;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .security-note i {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+        
+        /* Impact Section */
+        .impact-section {
+            padding: 80px 5%;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+        
+        .impact-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .impact-section p {
+            color: rgba(255,255,255,0.7);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+        }
+        
+        .impact-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .impact-item {
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .impact-item .amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+        
+        .impact-item .description {
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+        }
+        
+        /* Share Section */
+        .share-section {
+            padding: 60px 5%;
+            background: var(--light);
+            text-align: center;
+        }
+        
+        .share-section h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .share-btn.facebook { background: #1877F2; color: white; }
+        .share-btn.twitter { background: #1DA1F2; color: white; }
+        .share-btn.whatsapp { background: #25D366; color: white; }
+        
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+        
+        footer p { color: rgba(255,255,255,0.6); font-size: 14px; }
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            
+            .amount-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .donation-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-text">
+                <span class="logo-main">Stacey Monts <span>Foundation</span></span>
+                <span class="logo-sub">INC.</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#story">Our Story</a></li>
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="index.html#programs">Programs</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#events">Events</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="donate.html" class="nav-donate active">Donate</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Make a <span>Difference</span></h1>
+        <p>Change starts with people like you. Your donation helps make a real impact, one action at a time.</p>
+    </header>
+
+    <!-- Donation Section -->
+    <section class="donation-section">
+        <div class="donation-container">
+            <div class="donation-intro">
+                <h2>Your Gift Changes Lives</h2>
+                <p>Every dollar you give goes directly to supporting youth and families in Atlanta's Westside community. Together, we can do more.</p>
+            </div>
+            
+            <form class="donation-form" action="https://www.staceymontsfoundation.org/donate" method="GET">
+                <!-- Frequency -->
+                <div class="form-section">
+                    <div class="form-section-title">Donation Frequency</div>
+                    <div class="frequency-options">
+                        <div class="frequency-option">
+                            <input type="radio" id="one-time" name="frequency" value="one-time" checked>
+                            <label for="one-time">One Time</label>
+                        </div>
+                        <div class="frequency-option">
+                            <input type="radio" id="monthly" name="frequency" value="monthly">
+                            <label for="monthly">Monthly</label>
+                        </div>
+                        <div class="frequency-option">
+                            <input type="radio" id="yearly" name="frequency" value="yearly">
+                            <label for="yearly">Yearly</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Amount -->
+                <div class="form-section">
+                    <div class="form-section-title">Select Amount</div>
+                    <div class="amount-options">
+                        <div class="amount-option">
+                            <input type="radio" id="amt-50" name="amount" value="50" checked>
+                            <label for="amt-50">$50</label>
+                        </div>
+                        <div class="amount-option">
+                            <input type="radio" id="amt-100" name="amount" value="100">
+                            <label for="amt-100">$100</label>
+                        </div>
+                        <div class="amount-option">
+                            <input type="radio" id="amt-200" name="amount" value="200">
+                            <label for="amt-200">$200</label>
+                        </div>
+                        <div class="amount-option">
+                            <input type="radio" id="amt-1000" name="amount" value="1000">
+                            <label for="amt-1000">$1,000</label>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-amount">
+                        <label>Or enter a custom amount:</label>
+                        <div class="custom-amount-input">
+                            <span>$</span>
+                            <input type="number" id="custom-amount" name="custom_amount" placeholder="Enter amount">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Personal Info -->
+                <div class="form-section">
+                    <div class="form-section-title">Your Information</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="first_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="last_name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone (Optional)</label>
+                        <input type="tel" name="phone">
+                    </div>
+                </div>
+                
+                <button type="submit" class="donate-btn" onclick="window.location.href='https://www.staceymontsfoundation.org/donate'; return false;">
+                    <i class="fas fa-heart"></i> Complete Donation
+                </button>
+                
+                <p class="security-note">
+                    <i class="fas fa-lock"></i>
+                    Your donation is secure and tax-deductible. You will be redirected to our secure payment processor.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+        <h2>Your Impact</h2>
+        <p>See how your generosity transforms lives in our community</p>
+        
+        <div class="impact-examples">
+            <div class="impact-item">
+                <div class="amount">$50</div>
+                <div class="description">Provides a backpack filled with school supplies for a child</div>
+            </div>
+            <div class="impact-item">
+                <div class="amount">$100</div>
+                <div class="description">Feeds a family of 4 during Thanksgiving with a complete meal</div>
+            </div>
+            <div class="impact-item">
+                <div class="amount">$200</div>
+                <div class="description">Provides a winter coat, shoes, and toys for a child during the holidays</div>
+            </div>
+            <div class="impact-item">
+                <div class="amount">$1,000</div>
+                <div class="description">Adopts a family for the entire holiday season with all essentials</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Share Section -->
+    <section class="share-section">
+        <h3>Spread the Word</h3>
+        <div class="share-buttons">
+            <a href="https://facebook.com/sharer/sharer.php?u=https://www.staceymontsfoundation.org/donate" target="_blank" class="share-btn facebook">
+                <i class="fab fa-facebook-f"></i> Share
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=https://www.staceymontsfoundation.org/donate&text=Help%20support%20youth%20and%20families%20in%20Atlanta!" target="_blank" class="share-btn twitter">
+                <i class="fab fa-twitter"></i> Tweet
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone&text=Help%20support%20the%20Stacey%20Monts%20Foundation!%20https://www.staceymontsfoundation.org/donate" target="_blank" class="share-btn whatsapp">
+                <i class="fab fa-whatsapp"></i> Share
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Stacey Monts Foundation, Inc. | <a href="index.html">Home</a> | Phone: 404-692-3448</p>
+        <p style="margin-top: 10px; font-size: 12px;">In Loving Memory of Stacey Monts (2000-2018)</p>
+    </footer>
+</body>
+</html>

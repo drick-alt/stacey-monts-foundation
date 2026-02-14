@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get Involved with the Stacey Monts Foundation - Volunteer your time and talents to help empower youth and families in Atlanta.">
+    <title>Get Involved | Stacey Monts Foundation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2D5A4A;
+            --primary-light: #3D7A64;
+            --primary-dark: #1D3A32;
+            --accent: #C9A962;
+            --accent-light: #E5D4A1;
+            --dark: #1A1A1A;
+            --light: #F8F6F3;
+            --gray: #6B6B6B;
+            --gray-light: #E8E6E3;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+            background: var(--light);
+        }
+        
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-light);
+            min-height: 90px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        
+        .logo span { color: var(--accent); }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-main { font-size: 24px; }
+        .logo-sub { font-size: 13px; font-weight: 500; color: var(--gray); letter-spacing: 1px; }
+        
+        .nav-links { display: flex; gap: 35px; list-style: none; }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        .nav-donate { background: var(--primary); color: white !important; padding: 12px 28px; border-radius: 30px; }
+        .nav-donate:hover { background: var(--primary-dark); }
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
+        
+        /* Page Header */
+        .page-header {
+            padding: 160px 5% 80px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            text-align: center;
+        }
+        
+        .page-header h1 { font-size: clamp(36px, 5vw, 56px); color: white; margin-bottom: 15px; }
+        .page-header h1 span { color: var(--accent); }
+        .page-header p { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 700px; margin: 0 auto; }
+        
+        /* Mission Statement */
+        .mission-statement {
+            padding: 80px 5%;
+            background: white;
+            text-align: center;
+        }
+        
+        .mission-statement h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 25px;
+        }
+        
+        .mission-statement p {
+            color: var(--gray);
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+        }
+        
+        .mission-statement .highlight {
+            color: var(--primary);
+            font-weight: 600;
+            font-style: italic;
+        }
+        
+        .stacey-meaning {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-top: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        /* Volunteer Options */
+        .volunteer-options {
+            padding: 80px 5%;
+            background: var(--light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .option-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+            transition: all 0.3s;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        
+        .option-card i {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        .option-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .option-card p {
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .option-card ul {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .option-card ul li {
+            padding: 8px 0;
+            color: var(--gray);
+            font-size: 14px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .option-card ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .option-card ul li i {
+            font-size: 14px;
+            color: var(--accent);
+            margin-right: 10px;
+        }
+        
+        /* Volunteer Form Section */
+        .volunteer-form-section {
+            padding: 80px 5%;
+            background: white;
+        }
+        
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .form-intro h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .form-intro p {
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        .volunteer-form {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 50px;
+            border: 1px solid var(--gray-light);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 15px;
+            transition: border-color 0.3s;
+            background: white;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Checkbox Group */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary);
+        }
+        
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 400;
+            cursor: pointer;
+        }
+        
+        /* Submit Button */
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 20px 40px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 90, 74, 0.3);
+        }
+        
+        .submit-btn i {
+            margin-right: 10px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 5%;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+            border-color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+        
+        footer p { color: rgba(255,255,255,0.6); font-size: 14px; }
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .volunteer-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-text">
+                <span class="logo-main">Stacey Monts <span>Foundation</span></span>
+                <span class="logo-sub">INC.</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#story">Our Story</a></li>
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="index.html#programs">Programs</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#events">Events</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="donate.html" class="nav-donate">Donate</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Get <span>Involved</span></h1>
+        <p>Join us in our mission to break the cycle of poverty and create opportunities for youth and families to thrive.</p>
+    </header>
+
+    <!-- Mission Statement -->
+    <section class="mission-statement">
+        <h2>Be Part of Something Bigger</h2>
+        <p>Looking ahead, your support positions us to make an even greater impact on the individuals and families we serve. With the continued support of compassionate volunteers and donors, we have the potential to serve many more in the coming years.</p>
+        <p>Your contribution—whether time, talent, or treasure—not only helps us provide immediate assistance, but also lays the foundation for a brighter future for those we serve.</p>
+        <p class="highlight">"Breaking The Cycle of Poverty For The Opportunity To Thrive"</p>
+        <div class="stacey-meaning">
+            <i class="fas fa-heart" style="margin-right: 10px;"></i>
+            Standing Together Achieving Change Empowering Youth
+        </div>
+    </section>
+
+    <!-- Volunteer Options -->
+    <section class="volunteer-options">
+        <div class="section-header">
+            <h2>Ways to Help</h2>
+            <p>Choose how you'd like to make a difference</p>
+        </div>
+        
+        <div class="options-grid">
+            <div class="option-card">
+                <i class="fas fa-hands-helping"></i>
+                <h3>Event Volunteer</h3>
+                <p>Help us run our community events and programs throughout the year.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Back to School Drives</li>
+                    <li><i class="fas fa-check"></i> Thanksgiving Turkey Drives</li>
+                    <li><i class="fas fa-check"></i> Holiday Toy Drives</li>
+                    <li><i class="fas fa-check"></i> Coat Distribution Events</li>
+                </ul>
+            </div>
+            
+            <div class="option-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Community Ambassador</h3>
+                <p>Help spread the word about our mission and programs in your network.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Social Media Promotion</li>
+                    <li><i class="fas fa-check"></i> Community Outreach</li>
+                    <li><i class="fas fa-check"></i> Fundraising Support</li>
+                    <li><i class="fas fa-check"></i> Sponsor Connections</li>
+                </ul>
+            </div>
+            
+            <div class="option-card">
+                <i class="fas fa-laptop"></i>
+                <h3>Skills-Based Volunteer</h3>
+                <p>Use your professional skills to help us grow and serve better.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Marketing & Design</li>
+                    <li><i class="fas fa-check"></i> Photography & Video</li>
+                    <li><i class="fas fa-check"></i> Web Development</li>
+                    <li><i class="fas fa-check"></i> Grant Writing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Form -->
+    <section class="volunteer-form-section">
+        <div class="form-container">
+            <div class="form-intro">
+                <h2>Sign Up to Volunteer</h2>
+                <p>Fill out the form below and we'll be in touch about upcoming opportunities!</p>
+            </div>
+            
+            <form class="volunteer-form" action="mailto:shantel@staceymontsfoundation.org" method="POST" enctype="text/plain">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name *</label>
+                        <input type="text" name="first_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name *</label>
+                        <input type="text" name="last_name" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" name="email" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>City/Neighborhood</label>
+                        <input type="text" name="location" placeholder="e.g., Westside Atlanta">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Areas of Interest *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest-events" name="interests" value="events">
+                            <label for="interest-events">Event Volunteer</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest-ambassador" name="interests" value="ambassador">
+                            <label for="interest-ambassador">Community Ambassador</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest-skills" name="interests" value="skills">
+                            <label for="interest-skills">Skills-Based Volunteer</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="interest-other" name="interests" value="other">
+                            <label for="interest-other">Other / Flexible</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Availability</label>
+                    <select name="availability">
+                        <option value="">Select your availability</option>
+                        <option value="weekdays">Weekdays</option>
+                        <option value="weekends">Weekends</option>
+                        <option value="evenings">Evenings</option>
+                        <option value="flexible">Flexible</option>
+                        <option value="events-only">Events Only</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Special Skills or Experience (Optional)</label>
+                    <textarea name="skills" placeholder="Tell us about any skills, experience, or certifications you'd like to contribute..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Why do you want to volunteer with us?</label>
+                    <textarea name="motivation" placeholder="Share what inspires you to get involved..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Submit Application
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Other Ways to Support</h2>
+        <p>Can't volunteer your time? You can still make a meaningful impact through donations or by spreading the word.</p>
+        <div class="cta-buttons">
+            <a href="donate.html" class="btn btn-primary">
+                <i class="fas fa-heart"></i> Make a Donation
+            </a>
+            <a href="sponsors.html" class="btn btn-outline">
+                <i class="fas fa-handshake"></i> Become a Sponsor
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Stacey Monts Foundation, Inc. | <a href="index.html">Home</a> | Phone: 404-692-3448</p>
+        <p style="margin-top: 10px; font-size: 12px;">In Loving Memory of Stacey Monts (2000-2018)</p>
+    </footer>
+</body>
+</html>

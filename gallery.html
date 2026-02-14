@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photo gallery showcasing the Stacey Monts Foundation's community events, back to school drives, Thanksgiving outreach, and galas serving Atlanta's Westside youth and families.">
+    <title>Photo Gallery | Stacey Monts Foundation</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2D5A4A;
+            --primary-light: #3D7A64;
+            --primary-dark: #1D3A32;
+            --accent: #C9A962;
+            --accent-light: #E5D4A1;
+            --dark: #1A1A1A;
+            --light: #F8F6F3;
+            --gray: #6B6B6B;
+            --gray-light: #E8E6E3;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+            background: var(--light);
+        }
+        
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-light);
+            min-height: 90px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        
+        .logo span { color: var(--accent); }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-main { font-size: 24px; }
+        .logo-sub { font-size: 13px; font-weight: 500; color: var(--gray); letter-spacing: 1px; }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        
+        .nav-donate {
+            background: var(--primary);
+            color: white !important;
+            padding: 12px 28px;
+            border-radius: 30px;
+        }
+        
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
+        
+        /* Page Header */
+        .page-header {
+            padding: 160px 5% 80px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .page-header h1 span { color: var(--accent); }
+        
+        .page-header p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Gallery */
+        .gallery-section {
+            padding: 80px 5%;
+            background: var(--light);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        
+        .gallery-item:hover img { transform: scale(1.05); }
+        
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px 20px 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+        
+        .gallery-item-overlay h3 {
+            color: white;
+            font-size: 18px;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        
+        .lightbox.active { display: flex; }
+        
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 30px; right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 36px;
+            cursor: pointer;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .lightbox-nav:hover { background: var(--accent); color: var(--dark); }
+        .lightbox-prev { left: 30px; }
+        .lightbox-next { right: 30px; }
+        
+        /* CTA */
+        .gallery-cta {
+            background: var(--dark);
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .gallery-cta h2 { color: white; font-size: clamp(28px, 4vw, 40px); margin-bottom: 15px; }
+        .gallery-cta p { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 600px; margin: 0 auto 30px; }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary { background: var(--accent); color: var(--dark); }
+        .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+        
+        footer p { color: rgba(255,255,255,0.6); font-size: 14px; }
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-item img { height: 200px; }
+            .lightbox-nav { display: none; }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-text">
+                <span class="logo-main">Stacey Monts <span>Foundation</span></span>
+                <span class="logo-sub">INC.</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#story">Our Story</a></li>
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="index.html#programs">Programs</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#events">Events</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="donate.html" class="nav-donate">Donate</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Our <span>Gallery</span></h1>
+        <p>Celebrating our community impact through photos and memories</p>
+    </header>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <!-- Executive Team -->
+            <div class="gallery-item" onclick="openLightbox(0)">
+                <img src="SMF Executive Team_edited.jpg" alt="SMF Executive Team" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Executive Team</h3></div>
+            </div>
+            
+            <!-- Community Events -->
+            <div class="gallery-item" onclick="openLightbox(1)">
+                <img src="IMG_1737.jpeg" alt="Community Event" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Community Outreach</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(2)">
+                <img src="IMG_3706.jpeg" alt="Foundation Event" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Foundation Event</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(3)">
+                <img src="IMG_6001.jpeg" alt="Giving Back" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Giving Back</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(4)">
+                <img src="IMG_6003.jpeg" alt="Community Support" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Community Support</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(5)">
+                <img src="IMG_6007.jpeg" alt="Volunteers" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Our Volunteers</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(6)">
+                <img src="IMG_6009.jpeg" alt="Making a Difference" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Making a Difference</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(7)">
+                <img src="IMG_6012.jpeg" alt="Community Impact" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Community Impact</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(8)">
+                <img src="IMG_8613.jpeg" alt="Youth Program" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Youth Program</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(9)">
+                <img src="IMG_8614.jpeg" alt="Youth Empowerment" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Youth Empowerment</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(10)">
+                <img src="A149245E-3F9B-4375-9B9B-28BBD106E1CF.jpeg" alt="Event Photos" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Foundation Events</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(11)">
+                <img src="750E79A4-127B-4968-BBAA-9004FE439E76.jpeg" alt="Community Gathering" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Community Gathering</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(12)">
+                <img src="F1B140BD-6489-4210-880A-BD615AC27390.jpeg" alt="Celebration" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Celebration</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(13)">
+                <img src="E7F0501E-60CF-48DB-8815-514616749D31.jpeg" alt="Together" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Together We Serve</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(14)">
+                <img src="8A57853F-C389-4296-A5FF-75BCF833E07C.jpeg" alt="Service" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Service in Action</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(15)">
+                <img src="IMG_1167.jpeg" alt="Outreach" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Community Outreach</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(16)">
+                <img src="dji_mimo_20241123_141138_20241123141137_1732442903692_photo.jpeg" alt="Aerial View" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Event Aerial View</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(17)">
+                <img src="IMG-1162_edited.jpg" alt="Foundation Work" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Foundation at Work</h3></div>
+            </div>
+            
+            <!-- Event Flyers -->
+            <div class="gallery-item" onclick="openLightbox(18)">
+                <img src="Gala 2026 SD.PNG" alt="Annual Gala 2026" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Annual Gala 2026</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(19)">
+                <img src="bloom-again-brunch.png" alt="Bloom Again Brunch" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Bloom Again Brunch</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(20)">
+                <img src="Back 2 School 2026 DF.jpeg" alt="Back to School 2026" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Back to School 2026</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(21)">
+                <img src="Thanksgiving 2026 DF.jpeg" alt="Thanksgiving 2026" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Thanksgiving 2026</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox(22)">
+                <img src="Flyer toy 2026 DF.jpeg" alt="Holiday Toy Drive" loading="lazy">
+                <div class="gallery-item-overlay"><h3>Holiday Toy Drive</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="gallery-cta">
+        <h2>Be Part of Our Story</h2>
+        <p>Join us at our next event or make a donation to help us continue serving our community.</p>
+        <a href="donate.html" class="btn btn-primary">
+            <i class="fas fa-heart"></i> Support Our Mission
+        </a>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)"><i class="fas fa-chevron-left"></i></button>
+        <img src="" alt="" id="lightbox-image">
+        <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Stacey Monts Foundation, Inc. | <a href="index.html">Home</a> | <a href="donate.html">Donate</a></p>
+        <p style="margin-top: 10px; font-size: 12px;">In Loving Memory of Stacey Monts (2000-2018)</p>
+    </footer>
+
+    <script>
+        const images = [
+            'SMF Executive Team_edited.jpg',
+            'IMG_1737.jpeg',
+            'IMG_3706.jpeg',
+            'IMG_6001.jpeg',
+            'IMG_6003.jpeg',
+            'IMG_6007.jpeg',
+            'IMG_6009.jpeg',
+            'IMG_6012.jpeg',
+            'IMG_8613.jpeg',
+            'IMG_8614.jpeg',
+            'A149245E-3F9B-4375-9B9B-28BBD106E1CF.jpeg',
+            '750E79A4-127B-4968-BBAA-9004FE439E76.jpeg',
+            'F1B140BD-6489-4210-880A-BD615AC27390.jpeg',
+            'E7F0501E-60CF-48DB-8815-514616749D31.jpeg',
+            '8A57853F-C389-4296-A5FF-75BCF833E07C.jpeg',
+            'IMG_1167.jpeg',
+            'dji_mimo_20241123_141138_20241123141137_1732442903692_photo.jpeg',
+            'IMG-1162_edited.jpg',
+            'Gala 2026 SD.PNG',
+            'bloom-again-brunch.png',
+            'Back 2 School 2026 DF.jpeg',
+            'Thanksgiving 2026 DF.jpeg',
+            'Flyer toy 2026 DF.jpeg'
+        ];
+        
+        let currentIndex = 0;
+        
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox-image').src = images[index];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        function navigateLightbox(dir) {
+            currentIndex = (currentIndex + dir + images.length) % images.length;
+            document.getElementById('lightbox-image').src = images[currentIndex];
+        }
+        
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+        
+        document.getElementById('lightbox').addEventListener('click', e => {
+            if (e.target.id === 'lightbox') closeLightbox();
+        });
+    </script>
+</body>
+</html>

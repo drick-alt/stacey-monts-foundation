@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stacey Monts Foundation - Standing Together Achieving Change Empowering Youth. A nonprofit serving Atlanta's Westside youth and families since 2019.">
+    <meta name="keywords" content="Stacey Monts Foundation, Atlanta nonprofit, youth empowerment, community outreach, Westside Atlanta, charity, donate">
+    <title>Stacey Monts Foundation | Empowering Youth & Families</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2D5A4A;
+            --primary-light: #3D7A64;
+            --primary-dark: #1D3A32;
+            --accent: #C9A962;
+            --accent-light: #E5D4A1;
+            --dark: #1A1A1A;
+            --light: #F8F6F3;
+            --gray: #6B6B6B;
+            --gray-light: #E8E6E3;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+            background: var(--light);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-light);
+            transition: all 0.3s ease;
+            min-height: 90px;
+        }
+        
+        nav.scrolled {
+            padding: 0 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            min-height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-size: 24px;
+        }
+        
+        .logo-sub {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-donate {
+            background: var(--primary);
+            color: white !important;
+            padding: 12px 28px;
+            border-radius: 30px;
+            transition: all 0.3s !important;
+        }
+        
+        .nav-donate:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 5% 80px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(201,169,98,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(201,169,98,0.08)"/><circle cx="40" cy="70" r="2" fill="rgba(201,169,98,0.1)"/><circle cx="90" cy="90" r="2" fill="rgba(201,169,98,0.08)"/></svg>');
+            background-size: 100px 100px;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 169, 98, 0.2);
+            color: var(--accent-light);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(201, 169, 98, 0.3);
+        }
+        
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 72px);
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+        }
+        
+        .hero-tagline {
+            font-size: 20px;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .hero-acronym {
+            font-size: 14px;
+            color: var(--accent-light);
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201, 169, 98, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+            border-color: white;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 5%;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .section-header p {
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        .section-label {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        /* Story Section */
+        .story {
+            background: white;
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .story-image {
+            position: relative;
+        }
+        
+        .story-image-main {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .story-slideshow {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .story-slideshow img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background: var(--primary-dark);
+        }
+        
+        .story-slideshow img.active {
+            opacity: 1;
+        }
+        
+        .story-image-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .story-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .story-badge .number {
+            font-size: 36px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            display: block;
+        }
+        
+        .story-badge .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .story-content h2 {
+            font-size: 40px;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+        
+        .story-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .story-content .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .founders {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .founders-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .founders-list {
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        /* Mission Section */
+        .mission {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+        
+        .mission .section-header h2 {
+            color: white;
+        }
+        
+        .mission .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .mission-quote {
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(24px, 3.5vw, 36px);
+            line-height: 1.5;
+            color: var(--accent-light);
+            font-style: italic;
+        }
+        
+        .mission-acronym {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .acronym-item {
+            text-align: center;
+        }
+        
+        .acronym-letter {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .acronym-word {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* Programs Section */
+        .programs {
+            background: var(--light);
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid var(--gray-light);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        
+        .program-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .program-card:hover .program-image img {
+            transform: scale(1.05);
+        }
+        
+        .program-image-placeholder {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .program-image-placeholder i {
+            font-size: 60px;
+            color: white;
+        }
+        
+        .program-content {
+            padding: 30px;
+        }
+        
+        .program-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .program-content p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+        
+        /* Impact Section */
+        .impact {
+            background: white;
+        }
+        
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Events Section */
+        .events {
+            background: var(--light);
+        }
+        
+        .event-featured {
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--gray-light);
+            transition: all 0.4s;
+        }
+        
+        .event-featured:hover {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        
+        .event-featured-image {
+            position: relative;
+            min-height: 400px;
+        }
+        
+        .event-featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .event-featured-details {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .event-date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            width: fit-content;
+        }
+        
+        .event-featured-details h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .event-featured-details p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        
+        .event-meta {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .event-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .event-meta i {
+            color: var(--primary);
+        }
+        
+        /* Upcoming Events Grid */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--gray-light);
+            transition: all 0.3s;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .event-card-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .event-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .event-card-content {
+            padding: 25px;
+        }
+        
+        .event-card-content h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .event-card-content p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        /* Event Calendar */
+        .calendar-container {
+            max-width: 1000px;
+            margin: 50px auto 0;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .calendar-header h3 {
+            font-size: 28px;
+            color: var(--dark);
+        }
+        
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .calendar-nav button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--light);
+            border-radius: 50%;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .calendar-nav button:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .calendar-nav span {
+            font-size: 18px;
+            font-weight: 600;
+            min-width: 180px;
+            text-align: center;
+        }
+        
+        .add-event-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .add-event-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        
+        .calendar-day-header {
+            text-align: center;
+            padding: 15px 5px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+        }
+        
+        .calendar-day {
+            min-height: 100px;
+            padding: 10px;
+            background: var(--light);
+            border-radius: 10px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .calendar-day:hover {
+            background: var(--gray-light);
+        }
+        
+        .calendar-day.other-month {
+            opacity: 0.4;
+        }
+        
+        .calendar-day.today {
+            background: rgba(45, 90, 74, 0.1);
+            border: 2px solid var(--primary);
+        }
+        
+        .calendar-day .day-number {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--dark);
+        }
+        
+        .calendar-day.today .day-number {
+            color: var(--primary);
+        }
+        
+        .calendar-event {
+            margin-top: 5px;
+            padding: 4px 8px;
+            background: var(--primary);
+            color: white;
+            font-size: 11px;
+            border-radius: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: all 0.2s;
+        }
+        
+        .calendar-event:hover {
+            background: var(--primary-dark);
+        }
+        
+        .calendar-event.gala {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .calendar-event.thanksgiving {
+            background: #E07B39;
+        }
+        
+        .calendar-event.holiday {
+            background: #C41E3A;
+        }
+        
+        .calendar-event.brunch {
+            background: #9B59B6;
+        }
+        
+        /* Event Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+            transition: color 0.3s;
+        }
+        
+        .modal-close:hover {
+            color: var(--dark);
+        }
+        
+        .modal h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid var(--gray-light);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .modal-actions button {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-save {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-save:hover {
+            background: var(--primary-dark);
+        }
+        
+        .btn-cancel {
+            background: var(--light);
+            color: var(--dark);
+        }
+        
+        .btn-cancel:hover {
+            background: var(--gray-light);
+        }
+        
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+            flex: 0.5;
+        }
+        
+        .btn-delete:hover {
+            background: #c82333;
+        }
+        
+        /* Event List Below Calendar */
+        .upcoming-events-list {
+            margin-top: 30px;
+            border-top: 1px solid var(--gray-light);
+            padding-top: 30px;
+        }
+        
+        .upcoming-events-list h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .event-list-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            background: var(--light);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .event-list-item:hover {
+            background: var(--gray-light);
+        }
+        
+        .event-list-date {
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .event-list-date .month {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .event-list-date .day {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .event-list-info h5 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--dark);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .event-list-info p {
+            font-size: 13px;
+            color: var(--gray);
+        }
+        
+        @media (max-width: 768px) {
+            .calendar-day {
+                min-height: 70px;
+                padding: 5px;
+            }
+            
+            .calendar-day .day-number {
+                font-size: 12px;
+            }
+            
+            .calendar-event {
+                font-size: 9px;
+                padding: 2px 4px;
+            }
+            
+            .calendar-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .calendar-day-header {
+                font-size: 10px;
+                padding: 10px 2px;
+            }
+        }
+        
+        /* Get Involved Section */
+        .get-involved {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .get-involved .section-header h2 {
+            color: white;
+        }
+        
+        .get-involved .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .get-involved .section-label {
+            color: var(--accent);
+        }
+        
+        .involvement-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+        }
+        
+        .involvement-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+        
+        .involvement-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .involvement-card i {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .involvement-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .involvement-card p {
+            font-size: 15px;
+            opacity: 0.8;
+        }
+        
+        .cta-donate {
+            margin-top: 30px;
+        }
+        
+        .cta-donate .btn-primary {
+            font-size: 16px;
+            padding: 20px 50px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid var(--gray-light);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .contact-form .btn {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 5% 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .footer-logo-text span {
+            color: var(--accent);
+        }
+        
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .footer-links h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .story-image {
+                order: -1;
+            }
+            
+            .impact-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .event-featured {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-featured-image {
+                min-height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .impact-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .stat-number {
+                font-size: 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            section {
+                padding: 60px 5%;
+            }
+            
+            .mission-acronym {
+                gap: 20px;
+            }
+            
+            .acronym-letter {
+                font-size: 36px;
+            }
+            
+            .event-featured-details {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-text">
+                <span class="logo-main">Stacey Monts <span>Foundation</span></span>
+                <span class="logo-sub">INC.</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="donate.html" class="nav-donate">Donate</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="hero-badge">Serving Atlanta Since 2019</span>
+            <h1>Empowering <span>Youth</span> & Families</h1>
+            <p class="hero-tagline">Breaking The Cycle of Poverty For The Opportunity To Thrive</p>
+            <p class="hero-acronym">With STACEY we are: Standing Together Achieving Change Empowering Youth</p>
+            <div class="hero-buttons">
+                <a href="https://www.staceymontsfoundation.org/donate" class="btn btn-primary">
+                    <i class="fas fa-heart"></i> Make a Donation
+                </a>
+                <a href="#story" class="btn btn-outline">
+                    <i class="fas fa-play"></i> Our Story
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story" id="story">
+        <div class="story-grid">
+            <div class="story-image">
+                <div class="story-image-main">
+                    <div class="story-slideshow" id="storySlideshow">
+                        <img src="stacey-headshot.jpg" alt="Stacey Monts" class="active">
+                        <img src="stacey-1162.jpg" alt="Stacey Monts Memorial">
+                        <img src="stacey-5169.jpg" alt="Stacey Monts Tribute">
+                        <img src="stacey-logo.png" alt="Stacey Monts Foundation Logo">
+                    </div>
+                </div>
+                <div class="story-badge">
+                    <span class="number">2019</span>
+                    <span class="label">Founded</span>
+                </div>
+            </div>
+            <div class="story-content">
+                <span class="section-label">Our Story</span>
+                <h2>In Memory of Stacey Monts</h2>
+                <p>The Stacey Monts Foundation was founded following the sudden and tragic death of <span class="highlight">Stacey Monts</span>, a 17-year-old who lost his life on July 14, 2018, due to the senseless violence plaguing today's society.</p>
+                <p>Stacey was a recent high school graduate preparing to go out into the world to begin a new and productive chapter in life. Unfortunately, his life ended far too soon.</p>
+                <p>The Foundation is determined to remember Stacey by creating a legacy — assisting our youth with basic needs in life, providing a helping hand to families, and creating lasting solutions to improve their security, comfort, and welfare.</p>
+                <div class="founders">
+                    <p class="founders-label">Founded By</p>
+                    <p class="founders-list">Shantel Dean, Shante Bradford, Jasmine Benjamin, Amari Kelsey & Ericka Monts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="section-header">
+            <span class="section-label" style="color: var(--accent);">Our Mission</span>
+            <h2>What Drives Us</h2>
+        </div>
+        <p class="mission-quote">"Our mission is to serve the youth and families; creating lasting solutions to improve their security, comfort, and welfare. We are committed to serving our youth and providing services that improve their livelihood and ease the burden of struggling mothers or parents."</p>
+        <div class="mission-acronym">
+            <div class="acronym-item">
+                <div class="acronym-letter">S</div>
+                <div class="acronym-word">Standing</div>
+            </div>
+            <div class="acronym-item">
+                <div class="acronym-letter">T</div>
+                <div class="acronym-word">Together</div>
+            </div>
+            <div class="acronym-item">
+                <div class="acronym-letter">A</div>
+                <div class="acronym-word">Achieving</div>
+            </div>
+            <div class="acronym-item">
+                <div class="acronym-letter">C</div>
+                <div class="acronym-word">Change</div>
+            </div>
+            <div class="acronym-item">
+                <div class="acronym-letter">E</div>
+                <div class="acronym-word">Empowering</div>
+            </div>
+            <div class="acronym-item">
+                <div class="acronym-letter">Y</div>
+                <div class="acronym-word">Youth</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="section-header">
+            <span class="section-label">What We Do</span>
+            <h2>Our Programs</h2>
+            <p>We focus on initiatives that create real, lasting change in our community</p>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="Back 2 School 2026 DF.jpeg" alt="Back to School Drive">
+                </div>
+                <div class="program-content">
+                    <h3>Back to School</h3>
+                    <p>Equipping students for success with school supplies, backpacks, and educational resources. We believe every child deserves to start the school year prepared and confident.</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="Thanksgiving 2026 DF.jpeg" alt="Thanksgiving Food Drive">
+                </div>
+                <div class="program-content">
+                    <h3>Thanksgiving Blessing</h3>
+                    <p>Providing complete Thanksgiving meals and warm coats to families in need. No family should go hungry during the holidays.</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="Flyer toy 2026 DF.jpeg" alt="Holiday Toy Drive">
+                </div>
+                <div class="program-content">
+                    <h3>Holiday Joy</h3>
+                    <p>Bringing smiles to children's faces with toys, gifts, and holiday cheer. Every child deserves the magic of the holiday season.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact">
+        <div class="section-header">
+            <span class="section-label">Our Impact</span>
+            <h2>Making a Difference</h2>
+            <p>Since 2019, we've been dedicated to serving Atlanta's Westside community</p>
+        </div>
+        <div class="impact-stats">
+            <div class="stat-item">
+                <div class="stat-number">6+</div>
+                <div class="stat-label">Years Serving</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Families Helped</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Coats Distributed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">30310</div>
+                <div class="stat-label">ZIP Code We Serve</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program History Section -->
+    <section class="program-history" id="history" style="background: var(--light); padding: 100px 5%;">
+        <div class="section-header">
+            <span class="section-label">Our Journey</span>
+            <h2>Program History</h2>
+            <p>A look back at the impact we've made together over the years</p>
+        </div>
+        
+        <div style="max-width: 1100px; margin: 0 auto;">
+            
+            <!-- TURKEY DRIVE SECTION -->
+            <div style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 40px; border: 1px solid var(--gray-light);">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid var(--accent);">
+                    <i class="fas fa-drumstick-bite" style="font-size: 36px; color: var(--accent);"></i>
+                    <h3 style="font-size: 28px; color: var(--dark); margin: 0; font-family: 'Playfair Display', serif;">Turkey Drive</h3>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; text-align: center;">
+                    <!-- 2019 -->
+                    <div style="padding: 25px 15px; background: var(--light); border-radius: 15px;">
+                        <div style="font-size: 32px; font-weight: 700; color: var(--primary); font-family: 'Playfair Display', serif; margin-bottom: 15px;">2019</div>
+                        <div style="font-size: 36px; font-weight: 700; color: var(--accent); margin-bottom: 5px;">25</div>
+                        <div style="font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Turkeys</div>
+                        <div style="font-size: 14px; color: var(--gray); line-height: 1.6;">
+                            <div><strong>325</strong> lbs</div>
+                            <div><strong>25</strong> families</div>
+                            <div><strong>91</strong> individuals fed</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2020 -->
+                    <div style="padding: 25px 15px; background: var(--light); border-radius: 15px;">
+                        <div style="font-size: 32px; font-weight: 700; color: var(--primary); font-family: 'Playfair Display', serif; margin-bottom: 15px;">2020</div>
+                        <div style="font-size: 36px; font-weight: 700; color: var(--accent); margin-bottom: 5px;">35</div>
+                        <div style="font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Turkeys</div>
+                        <div style="font-size: 14px; color: var(--gray); line-height: 1.6;">
+                            <div><strong>455</strong> lbs</div>
+                            <div><strong>35</strong> families</div>
+                            <div><strong>118</strong> individuals fed</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2021 -->
+                    <div style="padding: 25px 15px; background: rgba(45,90,74,0.1); border-radius: 15px; border: 2px solid var(--primary);">
+                        <div style="font-size: 32px; font-weight: 700; color: var(--primary); font-family: 'Playfair Display', serif; margin-bottom: 15px;">2021</div>
+                        <div style="font-size: 36px; font-weight: 700; color: var(--accent); margin-bottom: 5px;">150</div>
+                        <div style="font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Turkeys</div>
+                        <div style="font-size: 14px; color: var(--gray); line-height: 1.6;">
+                            <div><strong>1,950</strong> lbs</div>
+                            <div><strong>150</strong> families</div>
+                            <div><strong>470</strong> individuals fed</div>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 11px; color: var(--primary); font-weight: 600;"><i class="fas fa-star"></i> Record Year!</div>
+                    </div>
+                    
+                    <!-- 2022 -->
+                    <div style="padding: 25px 15px; background: var(--light); border-radius: 15px;">
+                        <div style="font-size: 32px; font-weight: 700; color: var(--primary); font-family: 'Playfair Display', serif; margin-bottom: 15px;">2022</div>
+                        <div style="font-size: 36px; font-weight: 700; color: var(--accent); margin-bottom: 5px;">85</div>
+                        <div style="font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Turkeys</div>
+                        <div style="font-size: 14px; color: var(--gray); line-height: 1.6;">
+                            <div><strong>1,105</strong> lbs</div>
+                            <div><strong>85</strong> families</div>
+                            <div><strong>278</strong> individuals fed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BOOK BAG DRIVE & TOY DRIVE - Side by Side -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                
+                <!-- BOOK BAG DRIVE -->
+                <div style="background: white; border-radius: 20px; padding: 40px; border: 1px solid var(--gray-light);">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid var(--primary);">
+                        <i class="fas fa-school" style="font-size: 32px; color: var(--primary);"></i>
+                        <h3 style="font-size: 24px; color: var(--dark); margin: 0; font-family: 'Playfair Display', serif;">Book Bag Drive</h3>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <!-- 2021 -->
+                        <div style="padding: 25px; background: var(--light); border-radius: 15px; text-align: center;">
+                            <div style="font-size: 28px; font-weight: 700; color: var(--primary); font-family: 'Playfair Display', serif; margin-bottom: 15px;">2021</div>
+                            <div style="font-size: 42px; font-weight: 700; color: var(--accent); margin-bottom: 5px;">250</div>
+                            <div style="font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Backpacks</div>
+                            <div style="font-size: 14px; color: var(--gray); line-height: 1.8;">
+                                <div><strong>82</strong> families served</div>
+                                <div><strong>250</strong> children helped</div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2022 -->
+                        <div style="padding: 25px; background: var(--light); border-radius: 15px; text-align: center;">
+                            <div style="font-size: 28px; font-weight: 700; color: var(--primary); font-family: 'Playfair Display', serif; margin-bottom: 15px;">2022</div>
+                            <div style="font-size: 42px; font-weight: 700; color: var(--accent); margin-bottom: 5px;">150</div>
+                            <div style="font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Backpacks</div>
+                            <div style="font-size: 14px; color: var(--gray); line-height: 1.8;">
+                                <div><strong>52</strong> families served</div>
+                                <div><strong>150</strong> children helped</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- TOY DRIVE -->
+                <div style="background: white; border-radius: 20px; padding: 40px; border: 1px solid var(--gray-light);">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #C41E3A;">
+                        <i class="fas fa-gifts" style="font-size: 32px; color: #C41E3A;"></i>
+                        <h3 style="font-size: 24px; color: var(--dark); margin: 0; font-family: 'Playfair Display', serif;">Holiday Toy Drive</h3>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <!-- 2021 -->
+                        <div style="padding: 25px; background: var(--light); border-radius: 15px; text-align: center;">
+                            <div style="font-size: 28px; font-weight: 700; color: var(--primary); font-family: 'Playfair Display', serif; margin-bottom: 15px;">2021</div>
+                            <div style="font-size: 42px; font-weight: 700; color: #C41E3A; margin-bottom: 5px;">6</div>
+                            <div style="font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Families Adopted</div>
+                            <div style="font-size: 14px; color: var(--gray); line-height: 1.8;">
+                                <div><strong>14</strong> children blessed</div>
+                                <div><strong>14</strong> coats given</div>
+                                <div><strong>14</strong> pairs of shoes</div>
+                                <div><strong>14</strong> toys distributed</div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2022 -->
+                        <div style="padding: 25px; background: var(--light); border-radius: 15px; text-align: center;">
+                            <div style="font-size: 28px; font-weight: 700; color: var(--primary); font-family: 'Playfair Display', serif; margin-bottom: 15px;">2022</div>
+                            <div style="font-size: 42px; font-weight: 700; color: #C41E3A; margin-bottom: 5px;">9</div>
+                            <div style="font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Families Adopted</div>
+                            <div style="font-size: 14px; color: var(--gray); line-height: 1.8;">
+                                <div><strong>26</strong> children blessed</div>
+                                <div><strong>28</strong> coats given</div>
+                                <div><strong>27</strong> pairs of shoes</div>
+                                <div><strong>29</strong> toys distributed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Responsive fix for mobile -->
+            <style>
+                @media (max-width: 900px) {
+                    .program-history [style*="grid-template-columns: repeat(4"] {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                    }
+                    .program-history [style*="grid-template-columns: 1fr 1fr"]:not([style*="gap: 20px"]) {
+                        grid-template-columns: 1fr !important;
+                    }
+                }
+            </style>
+            
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="section-header">
+            <span class="section-label">Upcoming</span>
+            <h2>Events</h2>
+            <p>Join us at our upcoming community events</p>
+        </div>
+        
+        <!-- Featured Event: Bloom Again Brunch -->
+        <div class="event-featured">
+            <div class="event-featured-image">
+                <img src="bloom-again-brunch.png" alt="Bloom Again Brunch">
+            </div>
+            <div class="event-featured-details">
+                <span class="event-date-badge">
+                    <i class="fas fa-calendar"></i> May 16, 2026
+                </span>
+                <h3>Bloom Again Brunch</h3>
+                <p>A beautiful time to pause, reflect, and remind ourselves that no matter what season we've walked through, there's always time to bloom again. Join us for an uplifting brunch celebrating renewal, connection, and new beginnings.</p>
+                <div class="event-meta">
+                    <span><i class="fas fa-clock"></i> 12:00 PM – 4:00 PM</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Yard Party ATL, Riverdale, GA</span>
+                </div>
+                <a href="https://www.staceymontsfoundation.org/event-details-registration/bloom-again-brunch" class="btn btn-primary">
+                    Get Tickets
+                </a>
+            </div>
+        </div>
+        
+        <!-- Upcoming Events List -->
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <h3>Upcoming Events</h3>
+                <button class="add-event-btn" onclick="openAddEventModal()">
+                    <i class="fas fa-plus"></i> Add Event
+                </button>
+            </div>
+            <div class="upcoming-events-list" style="margin-top: 0; border-top: none; padding-top: 0;">
+                <div id="upcomingEventsList">
+                    <!-- Events list will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Add/Edit Event Modal -->
+    <div class="modal-overlay" id="eventModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeEventModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 id="modalTitle">Add New Event</h3>
+            <form id="eventForm" onsubmit="saveEvent(event)">
+                <input type="hidden" id="eventId">
+                <div class="form-group">
+                    <label>Event Name *</label>
+                    <input type="text" id="eventName" required placeholder="Enter event name">
+                </div>
+                <div class="form-group">
+                    <label>Date *</label>
+                    <input type="date" id="eventDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    <input type="text" id="eventTime" placeholder="e.g., 12:00 PM - 4:00 PM">
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="eventLocation" placeholder="Enter location">
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="eventCategory">
+                        <option value="default">General Event</option>
+                        <option value="gala">Gala</option>
+                        <option value="brunch">Brunch</option>
+                        <option value="thanksgiving">Thanksgiving</option>
+                        <option value="holiday">Holiday</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="eventDescription" rows="3" placeholder="Event description"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeEventModal()">Cancel</button>
+                    <button type="button" class="btn-delete" id="deleteBtn" onclick="deleteEvent()" style="display: none;">Delete</button>
+                    <button type="submit" class="btn-save">Save Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Get Involved Section -->
+    <section class="get-involved" id="getinvolved">
+        <div class="section-header">
+            <span class="section-label">Join Us</span>
+            <h2>Get Involved</h2>
+            <p>Your support is invaluable. Together, we can create lasting change.</p>
+        </div>
+        <div class="involvement-options">
+            <a href="donate.html" class="involvement-card" style="text-decoration: none; color: inherit;">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>Donate</h3>
+                <p>Your financial contribution helps us expand our reach and serve more families in need.</p>
+            </a>
+            <a href="volunteer.html" class="involvement-card" style="text-decoration: none; color: inherit;">
+                <i class="fas fa-users"></i>
+                <h3>Volunteer</h3>
+                <p>Join our team of dedicated volunteers making a difference in the community.</p>
+            </a>
+            <a href="sponsors.html" class="involvement-card" style="text-decoration: none; color: inherit;">
+                <i class="fas fa-building"></i>
+                <h3>Partner</h3>
+                <p>Corporate partnerships help us scale our impact and reach more families.</p>
+            </a>
+        </div>
+        <div class="cta-donate">
+            <a href="donate.html" class="btn btn-primary">
+                <i class="fas fa-heart"></i> Donate Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <span class="section-label">Reach Out</span>
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Executive Director</h4>
+                        <p>Shantel Dean</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Phone</h4>
+                        <a href="tel:404-964-7685">404-964-7685</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <a href="mailto:shantel@staceymontsfoundation.org">shantel@staceymontsfoundation.org</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Website</h4>
+                        <a href="https://www.staceymontsfoundation.org">www.staceymontsfoundation.org</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="https://www.staceymontsfoundation.org/contact" method="POST">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="SMF_Logo_Transparent.png" alt="Stacey Monts Foundation">
+                    <span class="footer-logo-text">Stacey Monts <span>Foundation</span></span>
+                </div>
+                <p>Standing Together Achieving Change Empowering Youth. Serving Atlanta's Westside community since 2019.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#events">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="https://www.staceymontsfoundation.org/faq">FAQ</a></li>
+                    <li><a href="index.html#programs">Programs</a></li>
+                    <li><a href="https://onewarmcoat.org">One Warm Coat</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Stacey Monts Foundation, Inc. All rights reserved. 501(c)(3) Non-Profit Organization.</p>
+            <p>In Loving Memory of Stacey Monts (2000-2018)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+        
+        // ===== EVENT CALENDAR =====
+        
+        // Default events from the Event Page 2026
+        const defaultEvents = [
+            {
+                id: 'bloom-2026',
+                name: 'Bloom Again Brunch',
+                date: '2026-05-16',
+                time: '12:00 PM - 4:00 PM',
+                location: 'Yard Party ATL, Riverdale, GA',
+                category: 'brunch',
+                description: 'An uplifting brunch celebrating renewal, connection, and new beginnings.'
+            },
+            {
+                id: 'b2s-2026',
+                name: 'Back to School Drive/Giveaway and Festival',
+                date: '2026-07-19',
+                time: 'TBA',
+                location: 'TBA',
+                category: 'default',
+                description: 'Annual school supply distribution and community festival.'
+            },
+            {
+                id: 'gala-2026',
+                name: 'Annual Fundraising GALA',
+                date: '2026-09-20',
+                time: 'TBA',
+                location: 'TBA',
+                category: 'gala',
+                description: 'Celebrating community and raising funds for youth empowerment.'
+            },
+            {
+                id: 'tg-2026',
+                name: 'Thanksgiving Drive/Basket Pick Up and Festival',
+                date: '2026-11-22',
+                time: 'TBA',
+                location: 'TBA',
+                category: 'thanksgiving',
+                description: 'Providing meals and warm coats to families in need.'
+            },
+            {
+                id: 'toy-2026',
+                name: 'Annual Toy Giveaway and Festival',
+                date: '2026-12-20',
+                time: 'TBA',
+                location: 'TBA',
+                category: 'holiday',
+                description: 'Spreading holiday joy to children in the community.'
+            }
+        ];
+        
+        // Load events from localStorage or use defaults
+        function loadEvents() {
+            const stored = localStorage.getItem('smfEvents');
+            if (stored) {
+                return JSON.parse(stored);
+            }
+            // First time - save defaults
+            localStorage.setItem('smfEvents', JSON.stringify(defaultEvents));
+            return defaultEvents;
+        }
+        
+        // Save events to localStorage
+        function saveEvents(events) {
+            localStorage.setItem('smfEvents', JSON.stringify(events));
+        }
+        
+        let events = loadEvents();
+        let currentDate = new Date(2026, 4, 1); // Start at May 2026
+        let editingEventId = null;
+        
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                           'July', 'August', 'September', 'October', 'November', 'December'];
+        const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        
+        // Generate calendar
+        // Initialize upcoming events (calendar grid removed)
+        function generateCalendar() {
+            updateUpcomingEvents();
+        }
+        
+        // Update upcoming events list
+        function updateUpcomingEvents() {
+            const list = document.getElementById('upcomingEventsList');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            // Sort events by date and filter upcoming
+            const upcoming = events
+                .filter(e => new Date(e.date) >= today)
+                .sort((a, b) => new Date(a.date) - new Date(b.date))
+                .slice(0, 5);
+            
+            if (upcoming.length === 0) {
+                list.innerHTML = '<p style="color: var(--gray); text-align: center; padding: 20px;">No upcoming events scheduled.</p>';
+                return;
+            }
+            
+            list.innerHTML = upcoming.map(event => {
+                const date = new Date(event.date + 'T00:00:00');
+                const monthShort = monthNames[date.getMonth()].substring(0, 3).toUpperCase();
+                const day = date.getDate();
+                
+                return `
+                    <div class="event-list-item" onclick="editEvent('${event.id}')">
+                        <div class="event-list-date">
+                            <div class="month">${monthShort}</div>
+                            <div class="day">${day}</div>
+                        </div>
+                        <div class="event-list-info">
+                            <h5>${event.name}</h5>
+                            <p>${event.time || 'Time TBA'} ${event.location ? '• ' + event.location : ''}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // Change month
+        function changeMonth(delta) {
+            currentDate.setMonth(currentDate.getMonth() + delta);
+            generateCalendar();
+        }
+        
+        // Open add event modal
+        function openAddEventModal() {
+            editingEventId = null;
+            document.getElementById('modalTitle').textContent = 'Add New Event';
+            document.getElementById('eventForm').reset();
+            document.getElementById('eventId').value = '';
+            document.getElementById('deleteBtn').style.display = 'none';
+            document.getElementById('eventModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Edit event
+        function editEvent(id) {
+            const event = events.find(e => e.id === id);
+            if (!event) return;
+            
+            editingEventId = id;
+            document.getElementById('modalTitle').textContent = 'Edit Event';
+            document.getElementById('eventId').value = id;
+            document.getElementById('eventName').value = event.name;
+            document.getElementById('eventDate').value = event.date;
+            document.getElementById('eventTime').value = event.time || '';
+            document.getElementById('eventLocation').value = event.location || '';
+            document.getElementById('eventCategory').value = event.category || 'default';
+            document.getElementById('eventDescription').value = event.description || '';
+            document.getElementById('deleteBtn').style.display = 'block';
+            document.getElementById('eventModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close modal
+        function closeEventModal() {
+            document.getElementById('eventModal').classList.remove('active');
+            document.body.style.overflow = '';
+            editingEventId = null;
+        }
+        
+        // Save event
+        function saveEvent(e) {
+            e.preventDefault();
+            
+            const eventData = {
+                id: editingEventId || 'event-' + Date.now(),
+                name: document.getElementById('eventName').value,
+                date: document.getElementById('eventDate').value,
+                time: document.getElementById('eventTime').value,
+                location: document.getElementById('eventLocation').value,
+                category: document.getElementById('eventCategory').value,
+                description: document.getElementById('eventDescription').value
+            };
+            
+            if (editingEventId) {
+                // Update existing
+                const index = events.findIndex(e => e.id === editingEventId);
+                if (index !== -1) {
+                    events[index] = eventData;
+                }
+            } else {
+                // Add new
+                events.push(eventData);
+            }
+            
+            saveEvents(events);
+            generateCalendar();
+            closeEventModal();
+        }
+        
+        // Delete event
+        function deleteEvent() {
+            if (!editingEventId) return;
+            if (!confirm('Are you sure you want to delete this event?')) return;
+            
+            events = events.filter(e => e.id !== editingEventId);
+            saveEvents(events);
+            generateCalendar();
+            closeEventModal();
+        }
+        
+        // Close modal on background click
+        document.getElementById('eventModal').addEventListener('click', function(e) {
+            if (e.target === this) closeEventModal();
+        });
+        
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeEventModal();
+        });
+        
+        // Initialize calendar on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            generateCalendar();
+            initSlideshow();
+        });
+        
+        // Story Section Slideshow
+        function initSlideshow() {
+            const slideshow = document.getElementById('storySlideshow');
+            if (!slideshow) return;
+            
+            const images = slideshow.querySelectorAll('img');
+            let currentIndex = 0;
+            
+            setInterval(function() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }, 4000); // Change image every 4 seconds
+        }
+    </script>
+</body>
+</html>
